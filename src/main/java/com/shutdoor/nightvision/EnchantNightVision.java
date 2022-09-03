@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.Mod;
 import javax.annotation.Nullable;
 
 import static com.shutdoor.nightvision.NightVision.MODID;
+import static com.shutdoor.nightvision.NightVision.nightvision;
 
 @Mod.EventBusSubscriber(modid = MODID)
 public class EnchantNightVision extends Enchantment {
@@ -37,28 +38,14 @@ public class EnchantNightVision extends Enchantment {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         ItemStack helmet = event.player.getItemBySlot(EquipmentSlot.HEAD);
-<<<<<<< HEAD
-        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(NightVision.nightvision, helmet);
-
-//
-        if(enchantLevel > 0){
-            if(!(event.player.hasEffect(MobEffects.NIGHT_VISION))) {
-                MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 1000000, 100, false, false);
-                playerEffect.setNoCounter(true);
-                event.player.addEffect(playerEffect);
-            }
-=======
-        MobEffect effect = MobEffects.NIGHT_VISION;
-        Boolean hasEffect = event.player.hasEffect(effect);
         int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(NightVision.nightvision, helmet);
 
 
-        if(enchantLevel > 0 && !hasEffect){
-            MobEffectInstance playerEffect = new MobEffectInstance(effect, 1000000, 100, false, false);
+        if(enchantLevel > 0 && !(event.player.hasEffect(MobEffects.NIGHT_VISION))){
+            MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 1000000, 100, false, false);
             playerEffect.setNoCounter(true);
            event.player.addEffect(playerEffect);
->>>>>>> 2899d67564b61bd3a3716459eb23ce126eaad57f
-       }else{
+       }else if(enchantLevel <= 0 && event.player.hasEffect(MobEffects.NIGHT_VISION)){
            event.player.removeEffect(MobEffects.NIGHT_VISION);
        }
     }
