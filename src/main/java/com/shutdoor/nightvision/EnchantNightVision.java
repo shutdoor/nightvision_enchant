@@ -37,16 +37,12 @@ public class  EnchantNightVision extends Enchantment {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         ItemStack helmet = event.player.getItemBySlot(EquipmentSlot.HEAD);
-        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(EnchantmentReg.NIGHT_VISION.get(), helmet);
+        int enchantLevel = EnchantmentHelper.getTagEnchantmentLevel(EnchantmentReg.NIGHT_VISION.get(), helmet);
 
         if(enchantLevel > 0){
-            if(!(event.player.hasEffect(MobEffects.NIGHT_VISION))) {
-                MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 1000000, 100, false, false);
+                MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 210, 100, false, false);
                 playerEffect.setNoCounter(true);
                 event.player.addEffect(playerEffect);
-            }
-       }else{
-           event.player.removeEffect(MobEffects.NIGHT_VISION);
        }
     }
 }
