@@ -40,8 +40,8 @@ public class  EnchantNightVision extends Enchantment {
         int enchantLevel = EnchantmentHelper.getTagEnchantmentLevel(EnchantmentReg.NIGHT_VISION.get(), helmet);
 
         if(enchantLevel > 0){
-                MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 210, 100, false, false);
-                playerEffect.setNoCounter(true);
+                MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 210, 100, false, false, false);
+//                playerEffect.setNoCounter(true);
                 event.player.addEffect(playerEffect);
        }
     }
