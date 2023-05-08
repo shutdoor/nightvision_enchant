@@ -14,15 +14,15 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 
-version = '1.18.2-0.0.3'
+version = '1.16.5-0.0.1'
 group = 'com.shutdoor.nightvision'
 archivesBaseName = 'nightvision'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: '1.16.5'
 
     runs {
         client {
@@ -94,12 +94,8 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
-repositories {
-
-}
-
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
 }
 
 jar {
@@ -129,8 +125,4 @@ publishing {
             url "file://${project.projectDir}/mcmodsrepo"
         }
     }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
