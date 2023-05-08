@@ -6,7 +6,7 @@ license="AGPL-3.0"
 [[mods]] #mandatory
 
 modId="nightvision" #mandatory
-version="0.0.3" #mandatory
+version="1.18.2-0.0.3" #mandatory
 
 displayName="Night Vision Enchantment" #mandatory
 
