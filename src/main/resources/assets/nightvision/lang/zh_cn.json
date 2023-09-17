@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 {
     "enchantment.nightvision.nightvision": "夜视",
     "enchantment.nightvision.nightvision.desc": "给予玩家夜视效果。"
-=======
-{
-    "enchantment.nightvision.nightvision": "夜视",
-    "enchantment.nightvision.nightvision.desc": "给予玩家夜视效果。"
->>>>>>> 82e80ee0f496ab099580c6695e30f7f8b45a36bd
 }
