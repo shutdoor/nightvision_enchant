@@ -1,20 +1,15 @@
 package com.shutdoor.nightvision;
 
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import javax.annotation.Nullable;
 
 import static com.shutdoor.nightvision.NightVision.MODID;
 
@@ -40,9 +35,9 @@ public class  EnchantNightVision extends Enchantment {
         int enchantLevel = EnchantmentHelper.getTagEnchantmentLevel(EnchantmentReg.NIGHT_VISION.get(), helmet);
 
         if(enchantLevel > 0){
-                MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 210, 100, false, false, false);
+            MobEffectInstance playerEffect = new MobEffectInstance(MobEffects.NIGHT_VISION, 210, 100, false, false, false);
 //                playerEffect.setNoCounter(true);
-                event.player.addEffect(playerEffect);
-       }
+            event.player.addEffect(playerEffect);
+        }
     }
 }
